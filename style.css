@@ -10,31 +10,39 @@ html, body {
 }
 
 body {
+  position: relative;
+  background: black;
+}
+
+.page {
+  inset: 0;
+  margin: auto;
+  max-width: 1000px;
+  height: 100vh;
   overflow: hidden;
   display: grid;
   grid-template-areas:
     "head head"
     "main aside"
     "foot foot";
-    grid-template-rows: 20px 1fr 20px;
+    grid-template-rows: 20px 1fr 30px;
     grid-template-columns: 60% 40%; 
 }
 
-body header {
+.page header {
   grid-area: head;
   width: 100%;
   background: black;
 
 }
 
-body main {
+.page main {
   grid-area: main;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  z-index: auto;
   background: white;
   overflow: hidden;
 }
@@ -42,18 +50,21 @@ body main {
 main .logo {
   position: absolute;
   height: 60%;
+  transform: scale(1.1);
 }
 
 main .background {
   position: absolute;
   bottom: 0;
   width: 100%;
-  transform: translateY(20%) scaleY(0.7);
+  transform: translateY(35%) scaleY(0.7);
+  z-index: 0;
 }
 
-body aside {
+.page aside {
   grid-area: aside;
   position: relative;
+  overflow: hidden;
   z-index: -1;
   background: rgb(0 0 0 / 0.6);
 }
@@ -64,6 +75,7 @@ aside .background {
   width: 100%;
   transform: rotateY(300);
   transform: scaleX(-1);
+  filter: blur(3px);
 }
 
 aside .animated img {
@@ -81,12 +93,13 @@ aside .animated img {
   }
 }
 
-body aside .background{
+.page aside .background{
   z-index: -1;
 }
 
-body footer {
+.page footer {
   grid-area: foot;
+  width: 100%;
   z-index: 1;
   background: black;
 }

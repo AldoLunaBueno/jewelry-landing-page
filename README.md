@@ -53,3 +53,33 @@ aside .animated {
   }
 }
 ```
+
+Continué agregando las fotos reales. Empecé cargando  la primera foto desde el script:
+
+```js
+const imgContainer = document.querySelector("aside .animated ")
+const link = "images/jewels/image1.png"
+const image = document.createElement("img")
+image.src = link
+imgContainer.append(image)
+}
+```
+
+Para resolverlo de la manera más simple, solo repetí el patrón y definí una constante para la cantidad de imagenes en el directorio _images/jewels/_:
+
+```js
+const NUMBER_JEWELS = 14
+const imgContainer = document.querySelector("aside .animated ")
+for (let i = 1; i <= NUMBER_JEWELS; i++) {
+  const link = "images/jewels/image" + i + ".png"
+  const image = document.createElement("img")
+  image.src = link
+  imgContainer.append(image)
+}
+```
+
+Un problema que noté fue que las imagenes demoraban cerca de medio segundo en cargar. Las fotos pesaban cerca de 1 MB, lo cual se explica porque estaban en formato PNG. El formato recomendado para la web es WEBP. Realicé la conversión de cada imagen usando este comando del programa de consola FFMPEG:
+
+```bash
+ffmpeg -i image1.png -c:v libwebp -compression_level 6 -y image1.webp
+```
