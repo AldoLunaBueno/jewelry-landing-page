@@ -133,7 +133,7 @@ aside .background {
 }
 
 .masked-image {
-  mask-image: url('images/female-hand.webp');
+  mask-image: url('images/female-hand.png');
   mask-position: 70% 20%;
   mask-size: 65%;
 }
