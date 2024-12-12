@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100vw;
   height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
@@ -14,7 +16,7 @@ body {
   background: black;
 }
 
-.page {
+body .page {
   inset: 0;
   margin: auto;
   max-width: 1000px;
@@ -25,15 +27,15 @@ body {
     "head head"
     "main aside"
     "foot foot";
-    grid-template-rows: 20px 1fr 30px;
-    grid-template-columns: 60% 40%; 
+  grid-template-rows: 20px 1fr 30px;
+  grid-template-columns: 60% 40%;
+  background: black;
 }
 
 .page header {
   grid-area: head;
   width: 100%;
   background: black;
-
 }
 
 .page main {
@@ -45,12 +47,66 @@ body {
   justify-content: space-between;
   background: white;
   overflow: hidden;
+  background: rgb(248, 248, 241);
+  z-index: 1;
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 0.2);
 }
 
 main .logo {
+  display: flex;
+  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: 55vh;
+  top: 5%;
+}
+
+main .logo img {
   position: absolute;
-  height: 60%;
-  transform: scale(1.1);
+  display: block;
+  width: auto;
+  height: 55%;
+  z-index: -1;
+}
+
+.scalated-border {
+  transform: scale(1.05);
+  filter: blur(3px) opacity(95%) saturate(1500%);
+}
+
+main .logo div {
+  position: absolute;
+  width: max-content;
+  z-index: 1;
+}
+
+main .logo h2 {
+  font-size: 3vh;
+  color: rgba(48, 0, 40, 0.777);
+  z-index: 1;
+}
+
+main .logo h1 {
+  width: max-content;
+  font-size: 6vh;
+  font-weight: 490;
+  z-index: 1;
+}
+
+.neonText {
+  --color: rgb(255, 0, 212);
+  color: #ffffff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px var(--color),
+      0 0 82px var(--color),
+      0 0 92px var(--color),
+      0 0 102px var(--color),
+      0 0 151px var(--color);
 }
 
 main .background {
@@ -63,39 +119,58 @@ main .background {
 
 .page aside {
   grid-area: aside;
+  display: flex;
   position: relative;
   overflow: hidden;
-  z-index: -1;
-  background: rgb(0 0 0 / 0.6);
+  background: linear-gradient(#caddfd, rgb(247, 217, 251));
 }
 
 aside .background {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  transform: rotateY(300);
-  transform: scaleX(-1);
-  filter: blur(3px);
+  position: absolute;
+  width: auto;
+  height: 110vh;
+  transform: translate(-25%, -10%);
+}
+
+.masked-image {
+  mask-image: url('images/female-hand.png');
+  mask-position: 70% 20%;
+  mask-size: 65%;
+}
+
+@property --width {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 40%;
 }
 
 aside .animated img {
   position: absolute;
   border-radius: 3px;
-  box-shadow: 1px 2px 2px 1px rgb(0 0 0 / 0.3);
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, 0);
+  opacity: 65%;
   top: 100%;
   animation: elevate linear infinite;
-
+  transition: 
+    all 500ms ease-in;
 }
+
 
 @keyframes elevate {
   to {
-    transform: translateY(-150vh);
+    transform: translateX(-50%) translateY(-150vh);
   }
 }
 
-.page aside .background{
-  z-index: -1;
+aside .animated img:hover {
+  width: 60% !important;
+  opacity: 1;
+  filter: blur(0px) !important;
+  transform: translate(-50%, 0%);
 }
+
+
 
 .page footer {
   grid-area: foot;
@@ -103,5 +178,3 @@ aside .animated img {
   z-index: 1;
   background: black;
 }
-
-

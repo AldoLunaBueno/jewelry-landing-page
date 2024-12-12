@@ -12,15 +12,15 @@ for (let i = 1; i <= NUMBER_JEWELS; i++) {
 
 
 document.querySelectorAll('aside .animated img').forEach(img => {
-  const duration = 10 + Math.random() * 20;
+  const duration = 15 + Math.random() * 30;
   const delay = Math.random() * -30;
   const xPosition = Math.random() * 85;
   const r = Math.random()
-  const height = parseInt(5 + 10*r);
+  const width = parseInt(5 + 20*r);
   const blur = 2-3*r
   img.style.left = `${xPosition}%`
-  img.style.height = `${height}%`
-  img.style.zIndex = height
+  img.style.width = `${width}%`
+  img.style.zIndex = width
   img.style.filter = `blur(${blur}px)`
   img.style.animationDuration = `${duration}s`;
   img.style.animationDelay = `${delay}s`;
