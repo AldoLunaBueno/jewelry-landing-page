@@ -107,7 +107,7 @@ main .logo img {
 
 ![alt text](readme-img/logo.webp)
 
-Lo siguiente que hice fue trabajar el brazo de fondo. Se me ocurió convertir el brazo en una máscara. Para mi sorpresa, esto se puede hacer con CSS. 
+Lo siguiente que hice fue trabajar el brazo de fondo. Se me ocurió convertir el brazo en una máscara. Para mi sorpresa, esto se puede hacer con CSS.
 
 ```css
 aside .background {
@@ -166,3 +166,6 @@ Es preciso entonces un mecanismo que le dé una mayor especificidad, y este es  
 ```
 
 Esto resuleve mi problema, aunque hay que hacer un par de cosas más para que las fotos queden centradas en su lugar al ser ampliadas.
+
+Una vez terminado esto, reduje el tamaño de las demás imágenes con ffmpeg convirtiéndolas al formato WEBP, excepto la máscara, que tiene que estar en formato PNG. Esta solo la comprimí sin pérdidas.
+
