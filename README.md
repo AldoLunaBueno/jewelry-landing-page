@@ -169,3 +169,6 @@ Esto resuleve mi problema, aunque hay que hacer un par de cosas más para que la
 
 Una vez terminado esto, reduje el tamaño de las demás imágenes con ffmpeg convirtiéndolas al formato WEBP, excepto la máscara, que tiene que estar en formato PNG. Esta solo la comprimí sin pérdidas.
 
+El resultado hasta el momento:
+
+![alt text](readme-img/demo.gif)
