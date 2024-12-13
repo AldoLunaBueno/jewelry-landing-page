@@ -1,3 +1,7 @@
+:root {
+  --main-aside-ratio: 60%
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +32,7 @@ body .page {
     "main aside"
     "foot foot";
   grid-template-rows: 20px 1fr 30px;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: var(--main-aside-ratio);
   background: black;
 }
 
@@ -61,6 +65,7 @@ main .logo {
   width: max-content;
   height: 55vh;
   top: 5%;
+  z-index: 1;
 }
 
 main .logo img {
@@ -114,12 +119,10 @@ main .background {
   bottom: 0;
   width: 100%;
   transform: translateY(35%) scaleY(0.7);
-  z-index: 0;
 }
 
 .page aside {
   grid-area: aside;
-  display: flex;
   position: relative;
   overflow: hidden;
   background: linear-gradient(#caddfd, rgb(247, 217, 251));
@@ -127,22 +130,24 @@ main .background {
 
 aside .background {
   position: absolute;
+  top: 0;
+  right: 0;
   width: auto;
-  height: 110vh;
-  transform: translate(-25%, -10%);
+  height: 85%;
 }
 
-.masked-image {
-  mask-image: url('images/female-hand.png');
-  mask-position: 70% 20%;
-  mask-size: 65%;
+@media (max-aspect-ratio: 5/4) {
+  aside .background {
+    right: auto;
+    left: 8.82%; 
+    /* 
+       left = 1 - image-width / aside-width, 
+       considering image and viewport aspect ratio, 
+       plus the image height percentage.
+    */
+  }
 }
 
-@property --width {
-  syntax: "<percentage>";
-  inherits: true;
-  initial-value: 40%;
-}
 
 aside .animated img {
   position: absolute;

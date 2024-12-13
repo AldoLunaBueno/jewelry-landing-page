@@ -169,6 +169,31 @@ Esto resuleve mi problema, aunque hay que hacer un par de cosas más para que la
 
 Una vez terminado esto, reduje el tamaño de las demás imágenes con ffmpeg convirtiéndolas al formato WEBP, excepto la máscara, que tiene que estar en formato PNG. Esta solo la comprimí sin pérdidas.
 
-El resultado hasta el momento:
+Pero la máscara tiene un problema: no se muestra correctamente. Es incómodo posicionarla. Por eso decidí hacer el efecto en Photoshop.
 
-![alt text](readme-img/demo.gif)
+El nuevo problema:
+
+```html
+<div class="square"></div>
+```
+
+```css
+.square {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: cornflowerblue;
+  right: 0;
+}
+```
+
+La solución:
+
+```css
+@media (max-width: 750px) {
+  .square {
+    left: calc(750px - 100px); /* Set left position */
+    right: auto; /* Disable the right property */
+  }
+}
+```
