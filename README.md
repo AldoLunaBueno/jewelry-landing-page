@@ -197,3 +197,5 @@ La solución:
   }
 }
 ```
+
+¿Cómo hacer los botones? La clave para tener un código CSS limpio es almacenar los atributos distintivos de cada ícono en HTML para luego pasarlos a CSS.

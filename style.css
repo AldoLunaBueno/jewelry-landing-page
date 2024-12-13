@@ -73,7 +73,6 @@ main .logo img {
   display: block;
   width: auto;
   height: 55%;
-  z-index: -1;
 }
 
 .scalated-border {
@@ -119,6 +118,7 @@ main .background {
   bottom: 0;
   width: 100%;
   transform: translateY(35%) scaleY(0.7);
+  z-index: -1;
 }
 
 .page aside {
@@ -156,6 +156,7 @@ aside .animated img {
   transform: translate(-50%, 0);
   opacity: 65%;
   top: 100%;
+  z-index: 0;
   animation: elevate linear infinite;
   transition: 
     all 500ms ease-in;
@@ -173,6 +174,7 @@ aside .animated img:hover {
   opacity: 1;
   filter: blur(0px) !important;
   transform: translate(-50%, 0%);
+  z-index: 555555 !important;
 }
 
 
@@ -182,4 +184,48 @@ aside .animated img:hover {
   width: 100%;
   z-index: 1;
   background: black;
+}
+
+/* Social Media Buttons */
+
+main .social-container {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  gap: 20px;
+}
+
+.social-container a {
+  padding: 1em;
+  background: white;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 5px 2px rgb(0 0 0 / 0.25);
+}
+
+.social-container a::before {
+  content: attr(data-social);
+  position: absolute;
+  background-color: var(--background-color);
+  color: white;
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  filter: opacity(0);
+  z-index: -1;
+  box-shadow: 0 5px 2px rgb(0 0 0 / 0.25);
+  transform: scale(0.3) rotate(60deg);
+  transition: all 0.3s ease;
+}
+
+.social-container a:hover::before {
+  transform: translateY(-55px);
+  filter: opacity(1);
+}
+
+
+.socials-container a svg {
+  height: 32px;
 }
