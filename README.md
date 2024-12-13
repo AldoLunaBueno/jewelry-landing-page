@@ -199,3 +199,11 @@ La solución:
 ```
 
 ¿Cómo hacer los botones? La clave para tener un código CSS limpio es almacenar los atributos distintivos de cada ícono en HTML para luego pasarlos a CSS.
+
+Íconos
+
+```bash
+ffmpeg -i icon.png -vf scale=256:-1 icon.ico
+ffmpeg -i icon.png -vf scale=16:-1 icon16.ico
+ffmpeg -i icon.png -vf scale=32:-1 icon32.ico
+```
