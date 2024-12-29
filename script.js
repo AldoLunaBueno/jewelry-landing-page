@@ -4,7 +4,14 @@ const $$ = (els) => document.querySelectorAll(els);
 const NUMBER_JEWELS = 19
 
 const images = $$("img");
-images.forEach((image) => (image.draggable = false));
+images.forEach((image) => {
+  image.draggable = false;
+  // Prevent long-press behavior on mobile
+  image.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+  });
+
+});
 
 const imgContainer = document.querySelector("aside .animated ")
 for (let i = 1; i <= NUMBER_JEWELS; i++) {

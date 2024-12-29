@@ -36,7 +36,15 @@ aside .animated {
 }
 ```
 
-La clave fue descubrir que el delay puede ser negativo.
+Demasiado complicado. La clave para simplificarlo fue descubrir que el delay puede ser negativo.
+
+```js
+document.querySelectorAll('aside .animated img').forEach(img => {
+  const delay = Math.random() * -30; // delay negativo
+  img.style.animationDelay = `${delay}s`;
+  ...
+});
+```
 
 ```css
 aside .animated {
@@ -65,7 +73,7 @@ imgContainer.append(image)
 }
 ```
 
-Para resolverlo de la manera más simple, solo repetí el patrón y definí una constante para la cantidad de imagenes en el directorio _images/jewels/_:
+Solo repetí el patrón y definí una constante para la cantidad de imagenes en el directorio _images/jewels/_:
 
 ```js
 const NUMBER_JEWELS = 14
@@ -81,7 +89,7 @@ for (let i = 1; i <= NUMBER_JEWELS; i++) {
 Un problema que noté fue que las imagenes demoraban cerca de medio segundo en cargar. Las fotos pesaban cerca de 1 MB, lo cual se explica porque estaban en formato PNG. El formato recomendado para la web es WEBP. Realicé la conversión de cada imagen usando este comando del programa de consola FFMPEG:
 
 ```bash
-ffmpeg -i image1.png -c:v libwebp -compression_level 6 -y image1.webp
+ffmpeg -i image.png -c:v libwebp -compression_level 6 -y image.webp
 ```
 
 El resultado general fue una compresión 20:1 con una diferencia de calidad casi inapreciable.
