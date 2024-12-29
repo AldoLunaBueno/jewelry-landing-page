@@ -1,4 +1,10 @@
+const $ = (el) => document.querySelector(el);
+const $$ = (els) => document.querySelectorAll(els);
+
 const NUMBER_JEWELS = 19
+
+const images = $$("img");
+images.forEach((image) => (image.draggable = false));
 
 const imgContainer = document.querySelector("aside .animated ")
 for (let i = 1; i <= NUMBER_JEWELS; i++) {
@@ -6,6 +12,7 @@ for (let i = 1; i <= NUMBER_JEWELS; i++) {
     const link = "images/jewels/image" + i + ".webp"
     const image = document.createElement("img")
     image.src = link
+    image.draggable = false
     imgContainer.append(image)
   }
 }
