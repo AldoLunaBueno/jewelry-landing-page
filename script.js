@@ -1,4 +1,4 @@
-const NUMBER_JEWELS = 14
+const NUMBER_JEWELS = 19
 
 const imgContainer = document.querySelector("aside .animated ")
 for (let i = 1; i <= NUMBER_JEWELS; i++) {

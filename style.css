@@ -40,6 +40,7 @@ body .page {
   grid-area: head;
   width: 100%;
   background: black;
+  z-index: 1000;
 }
 
 .page main {
@@ -49,11 +50,9 @@ body .page {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: white;
-  overflow: hidden;
-  background: rgb(248, 248, 241);
+  background: #ddddd7;
   z-index: 1;
-  box-shadow: 0 0 10px 2px rgb(0 0 0 / 0.2);
+  box-shadow: 0 0 5px 5px #ddddd7;
 }
 
 main .logo {
@@ -63,7 +62,7 @@ main .logo {
   align-items: center;
   justify-content: center;
   width: max-content;
-  height: 55vh;
+  height: 70%;
   top: 5%;
   z-index: 1;
 }
@@ -72,7 +71,7 @@ main .logo img {
   position: absolute;
   display: block;
   width: auto;
-  height: 55%;
+  height: 65%;
 }
 
 .scalated-border {
@@ -113,10 +112,10 @@ main .logo h1 {
       0 0 151px var(--color);
 }
 
-main .background {
+main .flowers {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 101%;
   transform: translateY(35%) scaleY(0.7);
   z-index: -1;
 }
@@ -124,16 +123,16 @@ main .background {
 .page aside {
   grid-area: aside;
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(#caddfd, rgb(247, 217, 251));
+  overflow: visible;
+  background: linear-gradient(#002b75, rgb(247, 217, 251));
 }
 
-aside .background {
+aside .hand {
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   width: auto;
-  height: 85%;
+  height: 60%;
 }
 
 @media (max-aspect-ratio: 5/4) {
@@ -182,7 +181,7 @@ aside .animated img:hover {
 .page footer {
   grid-area: foot;
   width: 100%;
-  z-index: 1;
+  z-index: 1000;
   background: black;
 }
 
