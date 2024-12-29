@@ -3,17 +3,7 @@ const $$ = (els) => document.querySelectorAll(els);
 
 const NUMBER_JEWELS = 19
 
-const images = $$("img");
-images.forEach((image) => {
-  image.draggable = false;
-  // Prevent long-press behavior on mobile
-  image.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-  });
-
-});
-
-const imgContainer = document.querySelector("aside .animated ")
+const imgContainer = $("aside .animated ")
 for (let i = 1; i <= NUMBER_JEWELS; i++) {
   for (let j = 0; j < 2; j++) {
     const link = "images/jewels/image" + i + ".webp"
@@ -24,8 +14,15 @@ for (let i = 1; i <= NUMBER_JEWELS; i++) {
   }
 }
 
+const images = $$("img");
+images.forEach((image) => {
+  image.draggable = false;
+  // Prevent context menu from appearing on long-press
+   image.addEventListener("contextmenu", (e) => e.preventDefault());
 
-document.querySelectorAll('aside .animated img').forEach(img => {
+});
+
+$$('aside .animated img').forEach(img => {
   const duration = 15 + Math.random() * 30;
   const delay = Math.random() * -30;
   const xPosition = Math.random() * 85;
