@@ -216,16 +216,14 @@ ffmpeg -i icon.png -vf scale=16:-1 icon16.ico
 ffmpeg -i icon.png -vf scale=32:-1 icon32.ico
 ```
 
-Un fallo importante es que, cuando se navega a través del móvil, las imágenes se abren al ser tocadas y presionadas.
+Un fallo importante es que, cuando se navega a través del móvil, las imágenes se abren al ser tocadas y presionadas. Y en el navegodor las imágenes pueden ser arrastradas.
 
 ![alt text](readme-img/embarrasing.jpg)
 
 La solución:
 
 ```js
-const images = $$("img");
-images.forEach((image) => (image.draggable = false));
-...
-// for each animated image
-  image.draggable = false
+// for all images
+  image.draggable = false // navegador
+  image.addEventListener("contextmenu", (e) => e.preventDefault()); // móvil
 ```

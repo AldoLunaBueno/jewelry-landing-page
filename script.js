@@ -9,16 +9,16 @@ for (let i = 1; i <= NUMBER_JEWELS; i++) {
     const link = "images/jewels/image" + i + ".webp"
     const image = document.createElement("img")
     image.src = link
-    image.draggable = false
     imgContainer.append(image)
   }
 }
 
 const images = $$("img");
 images.forEach((image) => {
+  // prevent dragging in PC
   image.draggable = false;
-  // Prevent context menu from appearing on long-press
-   image.addEventListener("contextmenu", (e) => e.preventDefault());
+  // prevent context menu from appearing on long-press
+  image.addEventListener("contextmenu", (e) => e.preventDefault());
 
 });
 
