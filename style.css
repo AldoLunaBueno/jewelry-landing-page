@@ -1,5 +1,5 @@
 :root {
-  --main-aside-ratio: 60%
+  --main-aside-ratio: 60%;
 }
 
 * {
@@ -12,29 +12,30 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   user-select: none;
 }
 
 body {
   position: relative;
   background: black;
-}
 
-body .page {
-  inset: 0;
-  margin: auto;
-  max-width: 1000px;
-  height: 100vh;
-  overflow: hidden;
-  display: grid;
-  grid-template-areas:
-    "head head"
-    "main aside"
-    "foot foot";
-  grid-template-rows: 20px 1fr 30px;
-  grid-template-columns: var(--main-aside-ratio);
-  background: black;
+  & .page {
+    inset: 0;
+    margin: auto;
+    max-width: 1000px;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas:
+      "head head"
+      "main aside"
+      "foot foot";
+    grid-template-rows: 20px 1fr 30px;
+    grid-template-columns: var(--main-aside-ratio);
+    background: black;
+  }
 }
 
 .page header {
@@ -44,6 +45,8 @@ body .page {
   z-index: 1000;
 }
 
+/* main section */
+
 .page main {
   grid-area: main;
   position: relative;
@@ -51,74 +54,112 @@ body .page {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
   background: #ddddd7;
-  z-index: 1;
   box-shadow: 0 0 5px 5px #ddddd7;
+
+  z-index: 1;
+
+  & .logo {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: 70%;
+    top: 5%;
+    z-index: 1;
+
+    & img {
+      position: absolute;
+      display: block;
+      width: auto;
+      height: 65%;
+    }
+
+    & .highlighting-image {
+      transform: scale(1.05);
+      filter: blur(3px) opacity(95%) saturate(1500%);
+    }
+
+    & div {
+      position: absolute;
+      width: max-content;
+      z-index: 1;
+
+      & h1 {
+        width: max-content;
+        font-size: 6vh;
+        font-weight: 490;
+        z-index: 1;
+
+        /* neon effect */
+        --color: rgb(255, 0, 212);
+        color: #ffffff;
+        text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+          0 0 42px var(--color), 0 0 82px var(--color), 0 0 92px var(--color),
+          0 0 102px var(--color), 0 0 151px var(--color);
+      }
+
+      & h2 {
+        font-size: 3vh;
+        color: rgba(66, 0, 55, 0.777);
+        z-index: 1;
+      }
+    }
+  }
+
+  .flowers {
+    position: absolute;
+    bottom: 0;
+    width: 105%;
+    transform: translateY(35%) scaleY(0.7);
+    z-index: -1;
+  }
 }
 
-main .logo {
+/* social media buttons */
+
+.page main .social-container {
+  position: absolute;
+  bottom: 10%;
   display: flex;
-  
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: max-content;
-  height: 70%;
-  top: 5%;
-  z-index: 1;
-}
+  gap: 20px;
 
-main .logo img {
-  position: absolute;
-  display: block;
-  width: auto;
-  height: 65%;
-}
+  & a {
+    padding: 1em;
+    background: white;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 2px rgb(0 0 0 / 0.25);
 
-.scalated-border {
-  transform: scale(1.05);
-  filter: blur(3px) opacity(95%) saturate(1500%);
-}
+    &::before {
+      content: attr(data-social);
+      position: absolute;
+      background-color: var(--background-color);
+      color: white;
+      border-radius: 20px;
+      padding: 0.5em 1em;
+      filter: opacity(0);
+      z-index: -1;
+      box-shadow: 0 5px 2px rgb(0 0 0 / 0.25);
+      transform: scale(0.3) rotate(60deg);
+      transition: all 0.3s ease;
+    }
 
-main .logo div {
-  position: absolute;
-  width: max-content;
-  z-index: 1;
-}
+    &:hover::before {
+      transform: translateY(-55px);
+      filter: opacity(1);
+    }
 
-main .logo h2 {
-  font-size: 3vh;
-  color: rgba(48, 0, 40, 0.777);
-  z-index: 1;
-}
-
-main .logo h1 {
-  width: max-content;
-  font-size: 6vh;
-  font-weight: 490;
-  z-index: 1;
-}
-
-.neonText {
-  --color: rgb(255, 0, 212);
-  color: #ffffff;
-  text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px var(--color),
-      0 0 82px var(--color),
-      0 0 92px var(--color),
-      0 0 102px var(--color),
-      0 0 151px var(--color);
-}
-
-main .flowers {
-  position: absolute;
-  bottom: 0;
-  width: 101%;
-  transform: translateY(35%) scaleY(0.7);
-  z-index: -1;
+    & svg {
+      height: 32px;
+    }
+  }
 }
 
 .page aside {
@@ -126,42 +167,36 @@ main .flowers {
   position: relative;
   overflow: visible;
   background: linear-gradient(#002b75, rgb(247, 217, 251));
-}
 
-aside .hand {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: auto;
-  height: 60%;
-}
+  & .hand {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 60%;
+  }
 
-@media (max-aspect-ratio: 5/4) {
-  aside .background {
-    right: auto;
-    left: 8.82%; 
-    /* 
-       left = 1 - image-width / aside-width, 
-       considering image and viewport aspect ratio, 
-       plus the image height percentage.
-    */
+  & .animated {
+    & img {
+      position: absolute;
+      border-radius: 3px;
+      transform: translate(-50%, 0);
+      opacity: 65%;
+      top: 100%;
+      z-index: 0;
+      animation: elevate linear infinite;
+      transition: all 500ms ease-in;
+
+      &:hover {
+        width: 60% !important;
+        opacity: 1;
+        filter: blur(0px) !important;
+        transform: translate(-50%, 0%);
+        z-index: 555555 !important;
+      }
+    }
   }
 }
-
-
-aside .animated img {
-  position: absolute;
-  border-radius: 3px;
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, 0);
-  opacity: 65%;
-  top: 100%;
-  z-index: 0;
-  animation: elevate linear infinite;
-  transition: 
-    all 500ms ease-in;
-}
-
 
 @keyframes elevate {
   to {
@@ -169,63 +204,9 @@ aside .animated img {
   }
 }
 
-aside .animated img:hover {
-  width: 60% !important;
-  opacity: 1;
-  filter: blur(0px) !important;
-  transform: translate(-50%, 0%);
-  z-index: 555555 !important;
-}
-
-
-
 .page footer {
   grid-area: foot;
   width: 100%;
   z-index: 1000;
   background: black;
-}
-
-/* Social Media Buttons */
-
-main .social-container {
-  position: absolute;
-  bottom: 10%;
-  display: flex;
-  gap: 20px;
-}
-
-.social-container a {
-  padding: 1em;
-  background: white;
-  border-radius: 50%;
-  width: 64px;
-  height: 64px;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 5px 2px rgb(0 0 0 / 0.25);
-}
-
-.social-container a::before {
-  content: attr(data-social);
-  position: absolute;
-  background-color: var(--background-color);
-  color: white;
-  border-radius: 20px;
-  padding: 0.5em 1em;
-  filter: opacity(0);
-  z-index: -1;
-  box-shadow: 0 5px 2px rgb(0 0 0 / 0.25);
-  transform: scale(0.3) rotate(60deg);
-  transition: all 0.3s ease;
-}
-
-.social-container a:hover::before {
-  transform: translateY(-55px);
-  filter: opacity(1);
-}
-
-
-.socials-container a svg {
-  height: 32px;
 }

@@ -9,6 +9,7 @@ for (let i = 1; i <= NUMBER_JEWELS; i++) {
     const link = "images/jewels/image" + i + ".webp"
     const image = document.createElement("img")
     image.src = link
+    image.alt = "imagen de una joya con movimiento animado"
     imgContainer.append(image)
   }
 }
