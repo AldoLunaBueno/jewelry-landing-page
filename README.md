@@ -1,6 +1,6 @@
 # jewelry-landing-page
 
-[🚀 Probar la aplicación en línea](https://aldolunabueno.github.io/jewelry-landing-page/){:target="_blank"}
+<a href="https://aldolunabueno.github.io/jewelry-landing-page/" target="_blank">🚀 Probar la aplicación en línea</a>
 
 ## Creation Process
 
